@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% block style %}
+
+{% endblock  %}
+{% block content %}
+
+<body class="bg-gray-200 flex justify-center items-center h-screen">
+  <div class="bg-white p-6 rounded shadow-md w-96">
+      <h1 class="text-xl font-bold mb-4">Login</h1>
+      <form id="loginForm" action="/login" method="post">
+        {% csrf_token %}
+          <div class="mb-4">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+                  Username
+              </label>
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" name="username" type="text" placeholder="Username">
+          </div>
+          <div class="mb-6">
+              <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+                  Password
+              </label>
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="password" name="password" type="password" placeholder="******************">
+          </div>
+          <div class="flex items-center justify-between">
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                  Sign In
+              </button>
+          </div>
+      </form>
+  </div>
+</body>
+
+{% endblock  %}
+{% block script %}
+<script>
+ $(document).ready(function() {
+    $("#loginForm").on("submit", function(event) {
+            console.log("Test")
+            $.ajax({
+                url: "login",
+                method: "POST",
+                data: $(this).serialize(),
+                success: function(response) {
+                  console.log("Success")
+                  //window.location.href = "http://127.0.0.1:8000/main";
+                },
+                error: function(xhr, status, error) {
+                    alert("Error: " + error);
+                }
+              });
+        });
+      });
+
+      function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = jQuery.trim(cookies[i]);
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+    
+    const csrftoken = getCookie('csrftoken');
+    
+    function csrfSafeMethod(method) {
+        return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+    }
+    
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+</script>
+
+
+{% endblock  %}
