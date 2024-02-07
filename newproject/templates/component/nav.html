@@ -1,27 +1,27 @@
-<nav class="bg-gray-800 p-2 mt-0 fixed w-full z-10 top-0">
-    <div class="container mx-auto flex flex-wrap items-center">
-        <div class="flex w-full md:w-1/2 justify-center md:justify-start text-white font-extrabold">
-            <a class="text-white no-underline hover:text-white hover:no-underline" href="#">
-                <span class="text-2xl pl-2"><i class="em em-grinning"></i>Project Online Data</span>
-            </a>
-        </div>
-        <div class="flex w-full pt-2 content-center justify-between md:w-1/2 md:justify-end">
-            <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
-                <li class="mr-3">
-                    <a class="inline-block py-2 px-4 text-white no-underline" href="#">หน้าแรก</a>
-                </li>
-                <li class="mr-3">
-                    <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">โปรเจ็ค</a>
-                </li>
-                <li class="mr-3">
-                    <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">หมวดหมู่</a>
-                </li>
-                <li class="mr-3">
-                    <a class="inline-block text-gray-600 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="/logout">ออกจากระบบ</a>
-                </li>
-            </ul>
-        </div>
+<div class="navbar bg-base-100 p-5">
+    <div class="flex-1">
+      <a class="btn btn-ghost text-xl font-bold">Project</a>
     </div>
-</nav>
-
-
+    <div class="flex-none gap-2">
+      <div class="form-control">
+        <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+      </div>
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+          <div class="w-10 rounded-full">
+            <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+          </div>
+        </div>
+        <ul tabindex="0" class="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+          <li>
+            <a class="justify-between">
+              Profile
+              <span class="badge">New</span>
+            </a>
+          </li>
+          <li><a>Settings</a></li>
+          <li><a>Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>

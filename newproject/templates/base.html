@@ -19,13 +19,15 @@
     </head>
 
 
-        
+        <body class="flex flex-col h-full">
+            {% include "component/nav.html" %}
+        <div class="flex-1">
         {% block content %}
         
         
         
         {% endblock  %}
-        
+        </div>
 
    
         {% block script %}
@@ -35,5 +37,6 @@
         {% endblock  %}
 
     
-   
+        {% include "component/footer.html" %}
+        </body>
 </html>
