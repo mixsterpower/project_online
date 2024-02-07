@@ -12,13 +12,15 @@ def index(request):
     return render(request,'index.html',context)
 
 def login_view(request):
+    print(request.POST)
     if request.method == "POST":
             username = request.POST.get('username')
             password = request.POST.get('password')
-            print(username)
+           
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 login(request, user)
+                print("Pass",username,password)
                 return HttpResponseRedirect('/main')
             else:
                 return JsonResponse({'error': 'Username or password wrong!!!!'}, status=401)
