@@ -2,10 +2,10 @@
 module.exports = {
   content:  [
       "newproject/templates/**/*.{html,js}" ,
-      'newproject/templates/component/**/*.{html,js}'],
+      "newproject/templates/component/**/*.{html,js}"],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }
 

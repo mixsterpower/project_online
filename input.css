@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@tailwind variable;
 
 .w-10-10{
     width: 10%;
