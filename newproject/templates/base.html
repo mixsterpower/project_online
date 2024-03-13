@@ -8,6 +8,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{% static 'css/tailwindcss.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font/bootstrap-icons.min.css' %}">
         <script src="{% static 'js/jquery.min.js' %}"></script>
         {% block static %}
         <style>
@@ -16,26 +17,19 @@
         
         {% endblock  %}
     </head>
+        <body>
 
-
-        <body class="flex flex-col h-full">
-            {% include "component/nav.html" %}
-        <div class="flex-1">
         {% block content %}
         
         
         
         {% endblock  %}
-        </div>
-
-   
         {% block script %}
         
         
         
         {% endblock  %}
 
-    
-        {% include "component/footer.html" %}
+
         </body>
 </html>

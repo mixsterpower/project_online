@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'app',
 ]
 
+
+# AUTH_USER_MODEL_RELATED_NAME = "default_users"
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -64,6 +66,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'app.context_processors.add_user_to_context'
             ],
         },
     },
@@ -122,7 +125,18 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
    
 ]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# AUTHENTICATION_BACKENDS = [
+#     'django.contrib.auth.backends.ModelBackend',  # เก็บ backend มาตรฐานไว้ด้วย
+#     'app.authentication.CustomUserBackend',  # เปลี่ยน 'path.to.your' ให้ตรงกับที่ตั้งของไฟล์ authentication.py
+# ]
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
